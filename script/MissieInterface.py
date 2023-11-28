@@ -242,9 +242,9 @@ class gifplay:
 root = Tk()
 
 original_cwd = os.getcwd()
-os.chdir(original_cwd + "/Assets")
-confusionMedia = vlc.Media("/video/Confusion.mp4")
-confusionImage = Image.open("/icons/Confusion.png")
+os.chdir(original_cwd + "/Assets/")
+confusionMedia = vlc.Media("video/Confusion.mp4")
+confusionImage = Image.open("icons\Confusion.png")
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
 enojoMedia = vlc.Media("/video/Enojo.mp4")
