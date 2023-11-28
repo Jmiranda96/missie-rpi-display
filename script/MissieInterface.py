@@ -59,6 +59,7 @@ class REMInterface():
 
 
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
+        print("\n add event")
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
             vlc.EventType.MediaPlayerEndReached, self.video_finished)
@@ -110,7 +111,6 @@ class REMInterface():
 
     def video_finished(self, event):
         print("\n video finished")
-        time.sleep(1)
         self.show_main_page()
 
     def create_vlc_instance(self):
@@ -145,7 +145,7 @@ class REMInterface():
 
     def play_film(self, media):
         self.vlc_media_player_instance.set_media(media)
-        print("Event attached")
+        time.sleep(1)
         self.play()
 
 class MainPage(ttk.Frame):
