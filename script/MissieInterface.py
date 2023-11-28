@@ -163,12 +163,9 @@ class MainPage(ttk.Frame):
         buttonsFrame = ttk.Frame(self)
         buttonsFrame.grid(column=0, row=0, sticky=(N, W, E, S))
 
-        buttonsFrame.columnconfigure(0, weight=1)
-        buttonsFrame.columnconfigure(1, weight=1)
-        buttonsFrame.columnconfigure(2, weight=1)
-        buttonsFrame.rowconfigure(0, weight=1)
-        buttonsFrame.rowconfigure(1, weight=1)
-        buttonsFrame.rowconfigure(2, weight=1)
+        buttonsFrame.columnconfigure(0, weight=4)
+        buttonsFrame.columnconfigure(1, weight=4)
+        buttonsFrame.columnconfigure(2, weight=4)
 
         # Button config
         print("icono")
@@ -183,15 +180,15 @@ class MainPage(ttk.Frame):
                                   command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
         self.miedoButton = ttk.Button(buttonsFrame, text='4', image=controller.miedoIcon,
-                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=3, sticky=(N, S, W, E))
 
         self.neutralButton = ttk.Button(buttonsFrame, text='5', image=controller.neutralIcon,
-                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=3, sticky=(N, S, W, E))
 
         self.tristezaButton = ttk.Button(buttonsFrame, text='6', image=controller.tristezaIcon,
-                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=3, sticky=(N, S, W, E))
         
-        mainLabel = ttk.Label(self, image = controller.mainImage).grid(column=0, row=0, sticky=(N, S, W, E))
+        mainLabel = ttk.Label(buttonsFrame, image = controller.mainImage).grid(column=1, row=0, columnspan=3, rowspan=2 sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
