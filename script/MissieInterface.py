@@ -50,11 +50,6 @@ class REMInterface():
 
         # Video instance
         self.vlc_instance, self.vlc_media_player_instance = self.create_vlc_instance()
-
-        self.vlc_media_player_instance.set_xwindow(self.get_handle())
-        events = self.vlc_media_player_instance.event_manager()
-        events.event_attach(
-            vlc.EventType.MediaPlayerEndReached, self.video_finished)
         
         self.video_page = VideoPage(root, self)
         self.video_page.grid(row=0, column=0, sticky="nsew")
@@ -62,6 +57,12 @@ class REMInterface():
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
+
+        self.vlc_media_player_instance.set_xwindow(self.get_handle())
+        events = self.vlc_media_player_instance.event_manager()
+        events.event_attach(
+            vlc.EventType.MediaPlayerEndReached, self.video_finished)
+        
         self.main_page.tkraise()
 
     def videoPuase(self, event):
