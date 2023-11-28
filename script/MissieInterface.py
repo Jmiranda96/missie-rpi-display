@@ -219,8 +219,8 @@ neutralImage.thumbnail((100, 100))
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
 tristezaMedia = vlc.Media(r"Assets/video/Tristeza.mp4")
-tristezaImage = ImageTk.PhotoImage(tristezaImage)
 tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
+tristezaImage.thumbnail((100, 100))
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 
