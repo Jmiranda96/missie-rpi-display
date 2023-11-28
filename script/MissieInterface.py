@@ -110,7 +110,7 @@ class REMInterface():
 
     def create_vlc_instance(self):
         """Create a vlc instance; `https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html`"""
-        vlc_instance = vlc.Instance()
+        vlc_instance = vlc.Instance('--no-xlib')
         vlc_media_player_instance = vlc_instance.media_player_new()
         root.update()
 
