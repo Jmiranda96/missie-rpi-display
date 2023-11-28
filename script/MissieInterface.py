@@ -57,12 +57,12 @@ class REMInterface():
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
-        # self.gifLable = ttk.Label(self.main_page, text='', anchor=CENTER).grid(
-        #     column=0, row=0, sticky=(N, W, S, E))
+        self.gifLable = ttk.Label(self.main_page, text='', anchor=CENTER).grid(
+            column=0, row=0, sticky=(N, W, S, E))
         
-        # os.chdir(self.original_cwd + "/Assets/video")
-        # gif=gifplay(self.gifLable,r"Felicidad.gif",0.1)
-        # gif.infinite()
+        os.chdir(self.original_cwd + "/Assets/video")
+        gif=gifplay(self.gifLable,r"Felicidad.gif",0.1)
+        gif.infinite()
 
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
         print("\n add event")
@@ -173,6 +173,7 @@ class MainPage(ttk.Frame):
         self.rowconfigure(2, weight=1)
 
         # Button config
+        print(controller.confusionIcon)
         confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
                                   command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
@@ -200,71 +201,30 @@ class VideoPage(ttk.Frame):
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
 
-        
-
-class gifplay:
-    """
-    Usage: mygif=gifplay(<<tkinter.label Objec>>,<<GIF path>>,<<frame_rate(in ms)>>)
-    example:
-    gif=GIF.gifplay(self.model2,'./res/neural.gif',0.1)
-    gif.play()
-    This will play gif infinitely
-    """
-    def __init__(self,label,giffile,delay):
-        self.frame=[]
-        i=0
-        while 1:
-            try:
-                image=PhotoImage(file = giffile, format="gif -index "+str(i))
-                self.frame.append(image)
-                i=i+1
-            except:
-                break
-        print(i)
-        self.totalFrames=i-1
-        self.delay=delay
-        self.labelspace=label
-        self.labelspace.image=self.frame[0]
-
-    def play(self):
-        """
-        plays the gif
-        """
-        _thread.start_new_thread(self.infinite,())
-
-    def infinite(self):
-        i=0
-        while 1:
-            self.labelspace.configure(image=self.frame[i])
-            i=(i+1)%self.totalFrames
-            time.sleep(self.delay)
-
 root = Tk()
 
-original_cwd = os.getcwd()
-os.chdir(original_cwd + "/Assets/")
-confusionMedia = vlc.Media("video/Confusion.mp4")
-confusionImage = Image.open("icons\Confusion.png")
+confusionMedia = vlc.Media(r"/video/Confusion.mp4")
+confusionImage = Image.open(r"/icons/Confusion2.png")
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
-enojoMedia = vlc.Media("/video/Enojo.mp4")
-enojoImage = Image.open("/icons/Enojo.png")
+enojoMedia = vlc.Media(r"/video/Enojo.mp4")
+enojoImage = Image.open(r"/icons/Enojo.png")
 enojoIcon = ImageTk.PhotoImage(enojoImage)
 
-felicidadMedia = vlc.Media("/video/Felicidad.mp4")
-felicidadImage = Image.open("/icons/Felicidad.png")
+felicidadMedia = vlc.Media(r"/video/Felicidad.mp4")
+felicidadImage = Image.open(r"/icons/Felicidad.png")
 felicidadIcon = ImageTk.PhotoImage(felicidadImage)
 
-miedoMedia = vlc.Media("/video/Miedo.mp4")
-miedoImage = Image.open("/icons/Miedo.png")
+miedoMedia = vlc.Media(r"/video/Miedo.mp4")
+miedoImage = Image.open(r"/icons/Miedo.png")
 miedoIcon = ImageTk.PhotoImage(miedoImage)
 
-neutralMedia = vlc.Media("/video/Neutral.mp4")
-neutralImage = Image.open("/icons/Neutral.png")
+neutralMedia = vlc.Media(r"/video/Neutral.mp4")
+neutralImage = Image.open(r"/icons/Neutral.png")
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
-tristezaMedia = vlc.Media("/video/Tristeza.mp4")
-tristezaImage = Image.open("/icons/Tristeza.png")
+tristezaMedia = vlc.Media(r"/video/Tristeza.mp4")
+tristezaImage = Image.open(r"/icons/Tristeza.png")
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 
