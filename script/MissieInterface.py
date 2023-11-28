@@ -155,11 +155,11 @@ class MainPage(ttk.Frame):
         # Frame config
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
-        # self.columnconfigure(1, weight=1)
-        # self.columnconfigure(2, weight=1)
+        self.columnconfigure(1, weight=1)
+        self.columnconfigure(2, weight=1)
         self.rowconfigure(0, weight=1)
-        # self.rowconfigure(1, weight=1)
-        # self.rowconfigure(2, weight=1)
+        self.rowconfigure(1, weight=1)
+        self.rowconfigure(2, weight=1)
 
         # Button config
         print("icono")
@@ -167,20 +167,20 @@ class MainPage(ttk.Frame):
         self.confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
                                   command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
-        # self.enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
-        #                           command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
+        self.enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
+                                  command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
 
-        # self.felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
-        #                           command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
+        self.felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
+                                  command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
-        # self.miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
-        #                           command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+        self.miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
+                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
 
-        # self.neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
-        #                          command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+        self.neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
+                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
 
-        # self.tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
-        #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        self.tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
+                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
@@ -200,21 +200,26 @@ confusionIcon = ImageTk.PhotoImage(confusionImage)
 
 enojoMedia = vlc.Media(r"Assets/video/Enojo.mp4")
 enojoImage = Image.open(r"Assets/icons/Enojo.png")
+enojoImage.thumbnail((100, 100))
 enojoIcon = ImageTk.PhotoImage(enojoImage)
 
 felicidadMedia = vlc.Media(r"Assets/video/Felicidad.mp4")
 felicidadImage = Image.open(r"Assets/icons/Felicidad.png")
+felicidadImage.thumbnail((100, 100))
 felicidadIcon = ImageTk.PhotoImage(felicidadImage)
 
 miedoMedia = vlc.Media(r"Assets/video/Miedo.mp4")
 miedoImage = Image.open(r"Assets/icons/Miedo.png")
+miedoImage.thumbnail((100, 100))
 miedoIcon = ImageTk.PhotoImage(miedoImage)
 
 neutralMedia = vlc.Media(r"Assets/video/Neutral.mp4")
 neutralImage = Image.open(r"Assets/icons/Neutral.png")
+neutralImage.thumbnail((100, 100))
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
 tristezaMedia = vlc.Media(r"Assets/video/Tristeza.mp4")
+tristezaImage = ImageTk.PhotoImage(tristezaImage)
 tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
