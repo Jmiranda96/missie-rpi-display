@@ -115,7 +115,7 @@ class REMInterface():
         return vlc_instance, vlc_media_player_instance
 
     def get_handle(self):
-        return self.main_page.winfo_id()
+        return self.video_page.winfo_id()
 
     def play(self):
         """Play a file."""
