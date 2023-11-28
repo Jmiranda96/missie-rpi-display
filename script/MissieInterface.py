@@ -110,7 +110,7 @@ class REMInterface():
 
     def video_finished(self, event):
         print("\n video finished")
-        time.sleep(4)
+        time.sleep(1)
         self.show_main_page()
 
     def create_vlc_instance(self):
