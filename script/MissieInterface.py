@@ -119,6 +119,7 @@ class REMInterface():
 
     def play(self):
         """Play a file."""
+        print("play video")
         self.vlc_media_player_instance.play()
 
     def close(self):
