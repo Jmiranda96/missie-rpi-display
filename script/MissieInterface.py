@@ -51,17 +51,13 @@ class REMInterface():
         # Video instance
         self.vlc_instance, self.vlc_media_player_instance = self.create_vlc_instance()
         
-        self.start_page = StartPage(root, self)
-        self.start_page.grid(row=0, column=0, sticky="nsew")
+        self.video_page = VideoPage(root, self)
+        self.video_page.grid(row=0, column=0, sticky="nsew")
 
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
-        self.vlc_media_player_instance.set_xwindow(self.get_handle())
-        print(self.get_handle())
-
         self.main_page.tkraise()
-        self.show_confusion_video()
 
     def videoPuase(self, event):
         self.pause()
@@ -75,26 +71,32 @@ class REMInterface():
 
     def show_confusion_video(self):
         print("\n show confusion video")
+        self.video_page.tkraise()
         self.play_film(confusionMedia)
 
     def show_enojo_video(self):
         print("\n show enojo video")
+        self.video_page.tkraise()
         self.play_film(enojoMedia)
 
     def show_felicidad_video(self):
         print("\n show felicidad video")
+        self.video_page.tkraise()
         self.play_film(felicidadMedia)
 
     def show_miedo_video(self):
         print("\n show miedo video")
+        self.video_page.tkraise()
         self.play_film(miedoMedia)
 
     def show_neutral_video(self):
         print("\n show neutral video")
+        self.video_page.tkraise()
         self.play_film(neutralMedia)
 
     def show_tristeza_video(self):
         print("\n show tristeza video")
+        self.video_page.tkraise()
         self.play_film(tristezaMedia)
 
     def show_main_page(self):
@@ -102,9 +104,7 @@ class REMInterface():
 
     def video_finished(self, event):
         print("\n video finished")
-        self.start_page.tkraise()
-        root.update()
-        self.show_confusion_video()
+        self.show_main_page()
 
     def create_vlc_instance(self):
         """Create a vlc instance; `https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html`"""
@@ -137,17 +137,8 @@ class REMInterface():
         self.vlc_media_player_instance.pause()
 
     def play_film(self, media):
-        self.main_page.tkraise()
-        print("Show instance")
-        print(self.vlc_media_player_instance)
-        root.update()
-        print("Show video")
-        print(media)
         self.vlc_media_player_instance.set_media(media)
-        print("set media")
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
-        print("set media handle")
-
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
             vlc.EventType.MediaPlayerEndReached, self.video_finished)
@@ -161,34 +152,32 @@ class MainPage(ttk.Frame):
         # Frame config
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
+        self.columnconfigure(1, weight=1)
+        self.columnconfigure(2, weight=1)
         self.rowconfigure(0, weight=1)
-        # self.columnconfigure(0, weight=1)
-        # self.columnconfigure(1, weight=1)
-        # self.columnconfigure(2, weight=1)
-        # self.rowconfigure(0, weight=1)
-        # self.rowconfigure(1, weight=1)
-        # self.rowconfigure(2, weight=1)
+        self.rowconfigure(1, weight=1)
+        self.rowconfigure(2, weight=1)
 
         # Button config
-        # confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
-        #                           command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
+        confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
+                                  command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
-        # enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
-        #                           command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
+        enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
+                                  command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
 
-        # felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
-        #                           command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
+        felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
+                                  command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
-        # miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
-        #                           command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+        miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
+                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
 
-        # neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
-        #                          command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+        neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
+                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
 
-        # tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
-        #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
+                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
-class StartPage(ttk.Frame):
+class VideoPage(ttk.Frame):
 
     def __init__(self, parent, controller):
 
