@@ -57,12 +57,12 @@ class REMInterface():
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
-        self.gifLable = ttk.Label(self.main_page, text='', anchor=CENTER).grid(
-            column=0, row=0, sticky=(N, W, S, E))
+        # self.gifLable = ttk.Label(self.main_page, text='', anchor=CENTER).grid(
+        #     column=0, row=0, sticky=(N, W, S, E))
         
-        os.chdir(self.original_cwd + "/Assets/video")
-        gif=gifplay(self.gifLable,r"Felicidad.gif",0.1)
-        gif.infinite()
+        # os.chdir(self.original_cwd + "/Assets/video")
+        # gif=gifplay(self.gifLable,r"Felicidad.gif",0.1)
+        # gif.infinite()
 
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
         print("\n add event")
@@ -165,31 +165,31 @@ class MainPage(ttk.Frame):
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
-        # self.columnconfigure(0, weight=1)
-        # self.columnconfigure(1, weight=1)
-        # self.columnconfigure(2, weight=1)
-        # self.rowconfigure(0, weight=1)
-        # self.rowconfigure(1, weight=1)
-        # self.rowconfigure(2, weight=1)
+        self.columnconfigure(0, weight=1)
+        self.columnconfigure(1, weight=1)
+        self.columnconfigure(2, weight=1)
+        self.rowconfigure(0, weight=1)
+        self.rowconfigure(1, weight=1)
+        self.rowconfigure(2, weight=1)
 
         # Button config
-        # confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
-        #                           command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
+        confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
+                                  command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
-        # enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
-        #                           command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
+        enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
+                                  command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
 
-        # felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
-        #                           command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
+        felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
+                                  command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
-        # miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
-        #                           command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+        miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
+                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
 
-        # neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
-        #                          command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+        neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
+                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
 
-        # tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
-        #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
+                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
@@ -241,28 +241,30 @@ class gifplay:
 
 root = Tk()
 
-confusionMedia = vlc.Media(r"Assets/video/Confusion.mp4")
-confusionImage = Image.open(r"Assets/icons/Confusion.png")
+original_cwd = os.getcwd()
+os.chdir(original_cwd + "/Assets")
+confusionMedia = vlc.Media(r"/video/Confusion.mp4")
+confusionImage = Image.open(r"/icons/Confusion.png")
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
-enojoMedia = vlc.Media(r"Assets/video/Enojo.mp4")
-enojoImage = Image.open(r"Assets/icons/Enojo.png")
+enojoMedia = vlc.Media(r"/video/Enojo.mp4")
+enojoImage = Image.open(r"/icons/Enojo.png")
 enojoIcon = ImageTk.PhotoImage(enojoImage)
 
-felicidadMedia = vlc.Media(r"Assets/video/Felicidad.mp4")
-felicidadImage = Image.open(r"Assets/icons/Felicidad.png")
+felicidadMedia = vlc.Media(r"/video/Felicidad.mp4")
+felicidadImage = Image.open(r"/icons/Felicidad.png")
 felicidadIcon = ImageTk.PhotoImage(felicidadImage)
 
-miedoMedia = vlc.Media(r"Assets/video/Miedo.mp4")
-miedoImage = Image.open(r"Assets/icons/Miedo.png")
+miedoMedia = vlc.Media(r"/video/Miedo.mp4")
+miedoImage = Image.open(r"/icons/Miedo.png")
 miedoIcon = ImageTk.PhotoImage(miedoImage)
 
-neutralMedia = vlc.Media(r"Assets/video/Neutral.mp4")
-neutralImage = Image.open(r"Assets/icons/Neutral.png")
+neutralMedia = vlc.Media(r"/video/Neutral.mp4")
+neutralImage = Image.open(r"/icons/Neutral.png")
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
-tristezaMedia = vlc.Media(r"Assets/video/Tristeza.mp4")
-tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
+tristezaMedia = vlc.Media(r"/video/Tristeza.mp4")
+tristezaImage = Image.open(r"/icons/Tristeza.png")
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 
