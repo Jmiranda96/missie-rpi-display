@@ -204,7 +204,7 @@ class VideoPage(ttk.Frame):
 root = Tk()
 
 confusionMedia = vlc.Media(r"/video/Confusion.mp4")
-confusionImage = Image.open(r"/icons/Confusion2.png")
+confusionImage = Image.open(r"/icons/Confusion.png")
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
 enojoMedia = vlc.Media(r"/video/Enojo.mp4")
