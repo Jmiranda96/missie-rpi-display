@@ -1,5 +1,5 @@
 #!/bin/bash
 echo ~
-cd ~/repos/REM
+cd ~/Repos/missie-rpi-display
 echo pwd
-pipenv run python script/REMInterface.py
+pipenv run python script/MissieInterface.py
