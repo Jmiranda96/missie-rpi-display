@@ -58,6 +58,7 @@ class REMInterface():
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
         self.main_page.tkraise()
+        self.show_confusion_video()
 
     def videoPuase(self, event):
         self.pause()
@@ -146,30 +147,32 @@ class MainPage(ttk.Frame):
         # Frame config
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=1)
-        self.columnconfigure(2, weight=1)
         self.rowconfigure(0, weight=1)
-        self.rowconfigure(1, weight=1)
-        self.rowconfigure(2, weight=1)
+        # self.columnconfigure(0, weight=1)
+        # self.columnconfigure(1, weight=1)
+        # self.columnconfigure(2, weight=1)
+        # self.rowconfigure(0, weight=1)
+        # self.rowconfigure(1, weight=1)
+        # self.rowconfigure(2, weight=1)
 
         # Button config
-        confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
-                                  command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
+        # confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
+        #                           command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
-        enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
-                                  command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
+        # enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
+        #                           command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
 
-        felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
-                                  command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
+        # felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
+        #                           command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
-        miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
-                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+        # miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
+        #                           command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
 
-        neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
-                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+        # neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
+        #                          command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
 
-        tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
-                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        # tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
+        #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
 root = Tk()
 
