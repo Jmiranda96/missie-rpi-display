@@ -170,6 +170,8 @@ class MainPage(ttk.Frame):
         buttonsFrame.rowconfigure(1, weight=1)
         buttonsFrame.rowconfigure(2, weight=1)
         buttonsFrame.rowconfigure(3, weight=1)
+        buttonsFrame.rowconfigure(4, weight=1)
+        buttonsFrame.rowconfigure(5, weight=1)
 
         # Button config
         print("icono")
@@ -187,13 +189,13 @@ class MainPage(ttk.Frame):
                                   command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
         self.miedoButton = ttk.Button(buttonsFrame, text='4', image=controller.miedoIcon,
-                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=3, sticky=(N, S, W, E))
+                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=5, sticky=(N, S, W, E))
 
         self.neutralButton = ttk.Button(buttonsFrame, text='5', image=controller.neutralIcon,
-                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=3, sticky=(N, S, W, E))
+                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=5, sticky=(N, S, W, E))
 
         self.tristezaButton = ttk.Button(buttonsFrame, text='6', image=controller.tristezaIcon,
-                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=3, sticky=(N, S, W, E))
+                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=5, sticky=(N, S, W, E))
         
 
 class VideoPage(ttk.Frame):
@@ -209,32 +211,32 @@ root = Tk()
 
 confusionMedia = vlc.Media(r"Assets/video/Confusion.mp4")
 confusionImage = Image.open(r"Assets/icons/Confusion.png")
-confusionImage.thumbnail((50, 50))
+confusionImage.thumbnail((70, 70))
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
 enojoMedia = vlc.Media(r"Assets/video/Enojo.mp4")
 enojoImage = Image.open(r"Assets/icons/Enojo.png")
-enojoImage.thumbnail((50, 50))
+enojoImage.thumbnail((70, 70))
 enojoIcon = ImageTk.PhotoImage(enojoImage)
 
 felicidadMedia = vlc.Media(r"Assets/video/Felicidad.mp4")
 felicidadImage = Image.open(r"Assets/icons/Felicidad.png")
-felicidadImage.thumbnail((50, 50))
+felicidadImage.thumbnail((70, 70))
 felicidadIcon = ImageTk.PhotoImage(felicidadImage)
 
 miedoMedia = vlc.Media(r"Assets/video/Miedo.mp4")
 miedoImage = Image.open(r"Assets/icons/Miedo.png")
-miedoImage.thumbnail((50, 50))
+miedoImage.thumbnail((70, 70))
 miedoIcon = ImageTk.PhotoImage(miedoImage)
 
 neutralMedia = vlc.Media(r"Assets/video/Neutral.mp4")
 neutralImage = Image.open(r"Assets/icons/Neutral.png")
-neutralImage.thumbnail((50, 50))
+neutralImage.thumbnail((70, 70))
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
 tristezaMedia = vlc.Media(r"Assets/video/Tristeza.mp4")
 tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
-tristezaImage.thumbnail((50, 50))
+tristezaImage.thumbnail((70, 70))
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 mainImageFile = Image.open(r"Assets/icons/face.jpg")
