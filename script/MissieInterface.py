@@ -57,13 +57,6 @@ class REMInterface():
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
-        self.gifLable = ttk.Label(self.main_page, text='', anchor=CENTER).grid(
-            column=0, row=0, sticky=(N, W, S, E))
-        
-        os.chdir(self.original_cwd + "/Assets/video")
-        gif=gifplay(self.gifLable,r"Felicidad.gif",0.1)
-        gif.infinite()
-
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
         print("\n add event")
         events = self.vlc_media_player_instance.event_manager()
