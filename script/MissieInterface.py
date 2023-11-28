@@ -138,11 +138,15 @@ class REMInterface():
 
     def play_film(self, media):
         self.main_page.tkraise()
+        print("Show instance")
+        print(self.vlc_media_player_instance)
         root.update()
         print("Show video")
         print(media)
         self.vlc_media_player_instance.set_media(media)
+        print("set media")
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
+        print("set media handle")
 
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
