@@ -7,8 +7,8 @@ import pygame
 import vlc
 
 if os.environ.get('DISPLAY','') == '':
-    print('no display found. Using :0.0')
-    os.environ.__setitem__('DISPLAY', ':0.0')
+    print('no display found. Using :0')
+    os.environ.__setitem__('DISPLAY', ':0')
 
 class REMInterface():
 
@@ -153,17 +153,22 @@ class MainPage(ttk.Frame):
         self.rowconfigure(2, weight=1)
 
         # Button config
-        confusionButton = ttk.Button(self, text='', image=controller.confusionIcon,
+        confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
                                   command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
-        enojoButton = ttk.Button(self, text='', image=controller.enojoIcon,
+
+        enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
                                   command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
-        felicidadButton = ttk.Button(self, text='', image=controller.felicidadIcon,
+
+        felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
                                   command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
-        miedoButton = ttk.Button(self, text='', image=controller.miedoIcon,
+
+        miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
                                   command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
-        neutralButton = ttk.Button(self, text='', image=controller.neutralIcon,
+
+        neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
                                  command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
-        tristezaButton = ttk.Button(self, text='', image=controller.tristezaIcon,
+                                 
+        tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
                                 command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
 root = Tk()
