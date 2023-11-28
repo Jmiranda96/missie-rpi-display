@@ -55,6 +55,9 @@ class REMInterface():
         events.event_attach(
             vlc.EventType.MediaPlayerEndReached, self.video_finished)
         
+        
+        self.start_page = StartPage(root, self)
+        self.start_page.grid(row=0, column=0, sticky="nsew")
 
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
@@ -142,6 +145,8 @@ class REMInterface():
         print("Show video")
         print(media)
         self.vlc_media_player_instance.set_media(media)
+        self.vlc_media_player_instance.set_xwindow(self.get_handle())
+        root.update()
         # printing value
         self.play()
 
@@ -178,6 +183,15 @@ class MainPage(ttk.Frame):
 
         # tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
         #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+
+class StartPage(ttk.Frame):
+
+    def __init__(self, parent, controller):
+
+        # Frame config
+        ttk.Frame.__init__(self, parent)
+        self.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=1)
 
 root = Tk()
 
