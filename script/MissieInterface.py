@@ -188,7 +188,7 @@ class MainPage(ttk.Frame):
         self.tristezaButton = ttk.Button(buttonsFrame, text='6', image=controller.tristezaIcon,
                                 command=lambda: controller.show_tristeza_video()).grid(column=2, row=3, sticky=(N, S, W, E))
         
-        mainLabel = ttk.Label(buttonsFrame, image = controller.mainImage).grid(column=1, row=0, columnspan=3, rowspan=2, sticky=(N, S, W, E))
+        mainLabel = ttk.Label(buttonsFrame, image = controller.mainImage).grid(column=1, row=1, columnspan=3, rowspan=2, sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
@@ -232,7 +232,7 @@ tristezaImage.thumbnail((100, 100))
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 mainImageFile = Image.open(r"Assets/icons/face.jpg")
-mainImageFile.thumbnail((200, 300))
+mainImageFile.thumbnail((100, 600))
 mainImage = ImageTk.PhotoImage(mainImageFile)
 
 
