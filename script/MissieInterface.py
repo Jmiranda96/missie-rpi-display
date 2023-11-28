@@ -163,9 +163,13 @@ class MainPage(ttk.Frame):
         buttonsFrame = ttk.Frame(self)
         buttonsFrame.grid(column=0, row=0, sticky=(N, W, E, S))
 
-        buttonsFrame.columnconfigure(0, weight=4)
-        buttonsFrame.columnconfigure(1, weight=4)
-        buttonsFrame.columnconfigure(2, weight=4)
+        buttonsFrame.columnconfigure(0, weight=1)
+        buttonsFrame.columnconfigure(1, weight=1)
+        buttonsFrame.columnconfigure(2, weight=1)
+        buttonsFrame.rowconfigure(0, weight=1)
+        buttonsFrame.rowconfigure(1, weight=1)
+        buttonsFrame.rowconfigure(2, weight=1)
+        buttonsFrame.rowconfigure(3, weight=1)
 
         # Button config
         print("icono")
@@ -203,32 +207,32 @@ root = Tk()
 
 confusionMedia = vlc.Media(r"Assets/video/Confusion.mp4")
 confusionImage = Image.open(r"Assets/icons/Confusion.png")
-confusionImage.thumbnail((100, 100))
+confusionImage.thumbnail((50, 50))
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
 enojoMedia = vlc.Media(r"Assets/video/Enojo.mp4")
 enojoImage = Image.open(r"Assets/icons/Enojo.png")
-enojoImage.thumbnail((100, 100))
+enojoImage.thumbnail((50, 50))
 enojoIcon = ImageTk.PhotoImage(enojoImage)
 
 felicidadMedia = vlc.Media(r"Assets/video/Felicidad.mp4")
 felicidadImage = Image.open(r"Assets/icons/Felicidad.png")
-felicidadImage.thumbnail((100, 100))
+felicidadImage.thumbnail((50, 50))
 felicidadIcon = ImageTk.PhotoImage(felicidadImage)
 
 miedoMedia = vlc.Media(r"Assets/video/Miedo.mp4")
 miedoImage = Image.open(r"Assets/icons/Miedo.png")
-miedoImage.thumbnail((100, 100))
+miedoImage.thumbnail((50, 50))
 miedoIcon = ImageTk.PhotoImage(miedoImage)
 
 neutralMedia = vlc.Media(r"Assets/video/Neutral.mp4")
 neutralImage = Image.open(r"Assets/icons/Neutral.png")
-neutralImage.thumbnail((100, 100))
+neutralImage.thumbnail((50, 50))
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
 tristezaMedia = vlc.Media(r"Assets/video/Tristeza.mp4")
 tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
-tristezaImage.thumbnail((100, 100))
+tristezaImage.thumbnail((50, 50))
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 mainImageFile = Image.open(r"Assets/icons/face.jpg")
