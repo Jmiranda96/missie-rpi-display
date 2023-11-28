@@ -41,7 +41,7 @@ class REMInterface():
         self.neutralMedia = neutralMedia
         self.tristezaMedia = tristezaMedia
 
-        
+        self.original_cwd = os.getcwd()
 
         # Root config
         root.attributes("-fullscreen", 1)
