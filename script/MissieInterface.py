@@ -102,8 +102,7 @@ class REMInterface():
 
     def video_finished(self, event):
         print("\n video finished")
-        self.stop()
-        # self.start_page.tkraise()
+        self.start_page.tkraise()
         self.show_confusion_video()
 
     def create_vlc_instance(self):
@@ -127,14 +126,16 @@ class REMInterface():
 
     def stop(self):
         """Stop the player."""
+        print("stop video")
         self.vlc_media_player_instance.stop()
 
     def pause(self):
         """Pause the player."""
+        print("pause video")
         self.vlc_media_player_instance.pause()
 
     def play_film(self, media):
-        # self.main_page.tkraise()
+        self.main_page.tkraise()
         print("Show video")
         print(media)
         self.vlc_media_player_instance.set_media(media)
