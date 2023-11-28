@@ -129,7 +129,9 @@ class REMInterface():
 
     def play_film(self, media):
         self.vlc_media_player_instance.set_media(media)
+        print(media)
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
+        print(self.get_handle())
 
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
@@ -167,7 +169,7 @@ class MainPage(ttk.Frame):
 
         neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
                                  command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
-                                 
+
         tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
                                 command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
