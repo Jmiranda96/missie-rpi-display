@@ -41,8 +41,6 @@ class REMInterface():
         self.neutralMedia = neutralMedia
         self.tristezaMedia = tristezaMedia
 
-        self.original_cwd = os.getcwd()
-
         # Root config
         root.attributes("-fullscreen", 1)
         root.columnconfigure(0, weight=1)
@@ -157,13 +155,11 @@ class MainPage(ttk.Frame):
         # Frame config
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
+        # self.columnconfigure(1, weight=1)
+        # self.columnconfigure(2, weight=1)
         self.rowconfigure(0, weight=1)
-        self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=1)
-        self.columnconfigure(2, weight=1)
-        self.rowconfigure(0, weight=1)
-        self.rowconfigure(1, weight=1)
-        self.rowconfigure(2, weight=1)
+        # self.rowconfigure(1, weight=1)
+        # self.rowconfigure(2, weight=1)
 
         # Button config
         print("icono")
@@ -171,20 +167,20 @@ class MainPage(ttk.Frame):
         self.confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
                                   command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
-        self.enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
-                                  command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
+        # self.enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
+        #                           command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
 
-        self.felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
-                                  command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
+        # self.felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
+        #                           command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
-        self.miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
-                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+        # self.miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
+        #                           command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
 
-        self.neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
-                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+        # self.neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
+        #                          command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
 
-        self.tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
-                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        # self.tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
+        #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
