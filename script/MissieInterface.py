@@ -103,6 +103,7 @@ class REMInterface():
     def video_finished(self, event):
         print("\n video finished")
         self.start_page.tkraise()
+        root.update()
         self.show_confusion_video()
 
     def create_vlc_instance(self):
@@ -136,6 +137,7 @@ class REMInterface():
 
     def play_film(self, media):
         self.main_page.tkraise()
+        root.update()
         print("Show video")
         print(media)
         self.vlc_media_player_instance.set_media(media)
