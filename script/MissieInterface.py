@@ -50,11 +50,6 @@ class REMInterface():
 
         # Video instance
         self.vlc_instance, self.vlc_media_player_instance = self.create_vlc_instance()
-
-        events = self.vlc_media_player_instance.event_manager()
-        events.event_attach(
-            vlc.EventType.MediaPlayerEndReached, self.video_finished)
-        
         
         self.start_page = StartPage(root, self)
         self.start_page.grid(row=0, column=0, sticky="nsew")
@@ -108,7 +103,7 @@ class REMInterface():
     def video_finished(self, event):
         print("\n video finished")
         self.pause()
-        self.start_page.tkraise()
+        # self.start_page.tkraise()
         self.show_confusion_video()
 
     def create_vlc_instance(self):
@@ -143,10 +138,13 @@ class REMInterface():
         self.vlc_media_player_instance.pause()
 
     def play_film(self, media):
-        self.main_page.tkraise()
+        # self.main_page.tkraise()
         print("Show video")
         print(media)
         self.vlc_media_player_instance.set_media(media)
+        events = self.vlc_media_player_instance.event_manager()
+        events.event_attach(
+            vlc.EventType.MediaPlayerEndReached, self.video_finished)
         self.play()
 
 class MainPage(ttk.Frame):
