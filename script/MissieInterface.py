@@ -203,28 +203,28 @@ class VideoPage(ttk.Frame):
 
 root = Tk()
 
-confusionMedia = vlc.Media(r"/video/Confusion.mp4")
-confusionImage = Image.open(r"/icons/Confusion.png")
+confusionMedia = vlc.Media(r"Assets/video/Confusion.mp4")
+confusionImage = Image.open(r"Assets/icons/Confusion.png")
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
-enojoMedia = vlc.Media(r"/video/Enojo.mp4")
-enojoImage = Image.open(r"/icons/Enojo.png")
+enojoMedia = vlc.Media(r"Assets/video/Enojo.mp4")
+enojoImage = Image.open(r"Assets/icons/Enojo.png")
 enojoIcon = ImageTk.PhotoImage(enojoImage)
 
-felicidadMedia = vlc.Media(r"/video/Felicidad.mp4")
-felicidadImage = Image.open(r"/icons/Felicidad.png")
+felicidadMedia = vlc.Media(r"Assets/video/Felicidad.mp4")
+felicidadImage = Image.open(r"Assets/icons/Felicidad.png")
 felicidadIcon = ImageTk.PhotoImage(felicidadImage)
 
-miedoMedia = vlc.Media(r"/video/Miedo.mp4")
-miedoImage = Image.open(r"/icons/Miedo.png")
+miedoMedia = vlc.Media(r"Assets/video/Miedo.mp4")
+miedoImage = Image.open(r"Assets/icons/Miedo.png")
 miedoIcon = ImageTk.PhotoImage(miedoImage)
 
-neutralMedia = vlc.Media(r"/video/Neutral.mp4")
-neutralImage = Image.open(r"/icons/Neutral.png")
+neutralMedia = vlc.Media(r"Assets/video/Neutral.mp4")
+neutralImage = Image.open(r"Assets/icons/Neutral.png")
 neutralIcon = ImageTk.PhotoImage(neutralImage)
 
-tristezaMedia = vlc.Media(r"/video/Tristeza.mp4")
-tristezaImage = Image.open(r"/icons/Tristeza.png")
+tristezaMedia = vlc.Media(r"Assets/video/Tristeza.mp4")
+tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 
