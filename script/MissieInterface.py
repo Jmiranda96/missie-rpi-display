@@ -106,7 +106,7 @@ class REMInterface():
         print("\n video finished")
         self.pause()
         time.sleep(1)
-        # self.show_felicidad_video()
+        self.show_felicidad_video()
 
     def create_vlc_instance(self):
         """Create a vlc instance; `https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html`"""
