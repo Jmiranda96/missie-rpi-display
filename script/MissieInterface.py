@@ -158,7 +158,6 @@ class MainPage(ttk.Frame):
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
-        mainLabel = ttk.Label(self, image = controller.mainImage).grid(column=0, row=0, sticky=(N, S, W, E))
 
         
         buttonsFrame = ttk.Frame(self)
@@ -191,6 +190,8 @@ class MainPage(ttk.Frame):
 
         self.tristezaButton = ttk.Button(buttonsFrame, text='6', image=controller.tristezaIcon,
                                 command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        
+        mainLabel = ttk.Label(self, image = controller.mainImage).grid(column=0, row=0, sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
