@@ -107,7 +107,7 @@ class REMInterface():
 
     def create_vlc_instance(self):
         """Create a vlc instance; `https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html`"""
-        vlc_instance = vlc.Instance('--no-xlib')
+        vlc_instance = vlc.Instance('--verbose=1','--no-xlib')
         vlc_media_player_instance = vlc_instance.media_player_new()
         root.update()
 
@@ -139,6 +139,8 @@ class REMInterface():
         print("Show video")
         print(media)
         self.vlc_media_player_instance.set_media(media)
+        self.vlc_media_player_instance.set_xwindow(self.get_handle())
+
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
             vlc.EventType.MediaPlayerEndReached, self.video_finished)
