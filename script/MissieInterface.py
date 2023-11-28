@@ -229,7 +229,7 @@ tristezaImage = Image.open(r"Assets/icons/Tristeza.png")
 tristezaImage.thumbnail((100, 100))
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
-mainImageFile = Image.open(r"Assets/icons/face.png")
+mainImageFile = Image.open(r"Assets/icons/face.jpg")
 mainImageFile.thumbnail((200, 300))
 mainImage = ImageTk.PhotoImage(mainImageFile)
 
