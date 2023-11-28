@@ -119,11 +119,12 @@ class REMInterface():
 
     def play(self):
         """Play a file."""
-        if not self.vlc_media_player_instance.get_media():
-            self.open()
-        else:
-            if self.vlc_media_player_instance.play() == -1:
-                pass
+        # if not self.vlc_media_player_instance.get_media():
+
+        #     self.open()
+        # else:
+        if self.vlc_media_player_instance.play() == -1:
+            pass
 
     def close(self):
         """Close the window."""
@@ -145,6 +146,7 @@ class REMInterface():
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
             vlc.EventType.MediaPlayerEndReached, self.video_finished)
+        print("Event attached")
         self.play()
 
 class MainPage(ttk.Frame):
