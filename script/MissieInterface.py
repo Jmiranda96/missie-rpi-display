@@ -111,6 +111,7 @@ class REMInterface():
 
     def video_finished(self, event):
         print("\n video finished")
+        time.sleep(4)
         self.show_main_page()
 
     def create_vlc_instance(self):
@@ -145,6 +146,8 @@ class REMInterface():
 
     def play_film(self, media):
         self.vlc_media_player_instance.set_media(media)
+        self.play()
+        self.pause()
         time.sleep(1)
         self.play()
 
