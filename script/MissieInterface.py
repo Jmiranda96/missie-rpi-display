@@ -1,4 +1,5 @@
 import os
+import time
 from tkinter import *
 from tkinter import ttk
 from turtle import color, width
@@ -50,9 +51,13 @@ class REMInterface():
         # Video instance
         self.vlc_instance, self.vlc_media_player_instance = self.create_vlc_instance()
 
+        self.vlc_media_player_instance.set_xwindow(self.get_handle())
+        print(self.get_handle())
+
         events = self.vlc_media_player_instance.event_manager()
         events.event_attach(
             vlc.EventType.MediaPlayerEndReached, self.video_finished)
+        
 
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
@@ -99,6 +104,8 @@ class REMInterface():
 
     def video_finished(self, event):
         print("\n video finished")
+        self.pause()
+        time.sleep(1)
         self.show_felicidad_video()
 
     def create_vlc_instance(self):
@@ -135,8 +142,6 @@ class REMInterface():
     def play_film(self, media):
         self.vlc_media_player_instance.set_media(media)
         print(media)
-        self.vlc_media_player_instance.set_xwindow(self.get_handle())
-        print(self.get_handle())
         # printing value
         self.play()
 
