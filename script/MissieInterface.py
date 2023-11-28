@@ -195,6 +195,7 @@ root = Tk()
 
 confusionMedia = vlc.Media(r"Assets/video/Confusion.mp4")
 confusionImage = Image.open(r"Assets/icons/Confusion.png")
+confusionImage.thumbnail((100, 100))
 confusionIcon = ImageTk.PhotoImage(confusionImage)
 
 enojoMedia = vlc.Media(r"Assets/video/Enojo.mp4")
