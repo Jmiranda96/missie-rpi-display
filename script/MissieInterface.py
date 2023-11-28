@@ -174,7 +174,8 @@ class MainPage(ttk.Frame):
         # Button config
         print("icono")
         print(controller.confusionIcon)
-        mainLabel = ttk.Label(buttonsFrame, image = controller.mainImage).grid(column=1, row=1, columnspan=3, rowspan=2, sticky=(N, S, W, E))
+        mainLabel = ttk.Label(buttonsFrame, image = controller.mainImage)
+        mainLabel.place(x = 0, y = 0, anchor = NW)
 
         self.confusionButton = ttk.Button(buttonsFrame, text='1', image=controller.confusionIcon,
                                   command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
@@ -237,7 +238,7 @@ tristezaImage.thumbnail((50, 50))
 tristezaIcon = ImageTk.PhotoImage(tristezaImage)
 
 mainImageFile = Image.open(r"Assets/icons/face.jpg")
-mainImageFile.thumbnail((400, 600))
+mainImageFile.thumbnail((500, 650))
 mainImage = ImageTk.PhotoImage(mainImageFile)
 
 
