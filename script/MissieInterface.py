@@ -105,12 +105,11 @@ class REMInterface():
     def video_finished(self, event):
         print("\n video finished")
         self.pause()
-        time.sleep(1)
-        self.show_felicidad_video()
+        self.show_confusion_video()
 
     def create_vlc_instance(self):
         """Create a vlc instance; `https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html`"""
-        vlc_instance = vlc.Instance('--no-xlib')
+        vlc_instance = vlc.Instance('--no-xlib', '--vout mmal_vout')
         vlc_media_player_instance = vlc_instance.media_player_new()
         root.update()
 
@@ -140,8 +139,9 @@ class REMInterface():
         self.vlc_media_player_instance.pause()
 
     def play_film(self, media):
-        self.vlc_media_player_instance.set_media(media)
+        print("Show video")
         print(media)
+        self.vlc_media_player_instance.set_media(media)
         # printing value
         self.play()
 
