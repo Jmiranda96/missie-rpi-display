@@ -57,6 +57,11 @@ class REMInterface():
         self.main_page = MainPage(root, self)
         self.main_page.grid(row=0, column=0, sticky="nsew")
 
+        self.gifLable = ttk.Label(self.main_page, text='', anchor=CENTER).grid(
+            column=0, row=0, sticky=(N, W, S, E))
+        
+        gif=gifplay(self.gifLable,r"Assets/video/Felicidad.gif",0.1)
+        gif.infinite()
 
         self.vlc_media_player_instance.set_xwindow(self.get_handle())
         print("\n add event")
@@ -158,30 +163,32 @@ class MainPage(ttk.Frame):
         # Frame config
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=1)
-        self.columnconfigure(2, weight=1)
         self.rowconfigure(0, weight=1)
-        self.rowconfigure(1, weight=1)
-        self.rowconfigure(2, weight=1)
+        # self.columnconfigure(0, weight=1)
+        # self.columnconfigure(1, weight=1)
+        # self.columnconfigure(2, weight=1)
+        # self.rowconfigure(0, weight=1)
+        # self.rowconfigure(1, weight=1)
+        # self.rowconfigure(2, weight=1)
 
         # Button config
-        confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
-                                  command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
+        # confusionButton = ttk.Button(self, text='1', image=controller.confusionIcon,
+        #                           command=lambda: controller.show_confusion_video()).grid(column=0, row=0, sticky=(N, S, W, E))
 
-        enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
-                                  command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
+        # enojoButton = ttk.Button(self, text='2', image=controller.enojoIcon,
+        #                           command=lambda: controller.show_enojo_video()).grid(column=1, row=0, sticky=(N, S, W, E))
 
-        felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
-                                  command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
+        # felicidadButton = ttk.Button(self, text='3', image=controller.felicidadIcon,
+        #                           command=lambda: controller.show_felicidad_video()).grid(column=2, row=0, sticky=(N, S, W, E))
 
-        miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
-                                  command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
+        # miedoButton = ttk.Button(self, text='4', image=controller.miedoIcon,
+        #                           command=lambda: controller.show_miedo_video()).grid(column=0, row=2, sticky=(N, S, W, E))
 
-        neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
-                                 command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
+        # neutralButton = ttk.Button(self, text='5', image=controller.neutralIcon,
+        #                          command=lambda: controller.show_neutral_video()).grid(column=1, row=2, sticky=(N, S, W, E))
 
-        tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
-                                command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
+        # tristezaButton = ttk.Button(self, text='6', image=controller.tristezaIcon,
+        #                         command=lambda: controller.show_tristeza_video()).grid(column=2, row=2, sticky=(N, S, W, E))
 
 class VideoPage(ttk.Frame):
 
@@ -191,6 +198,45 @@ class VideoPage(ttk.Frame):
         ttk.Frame.__init__(self, parent)
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
+
+        
+
+class gifplay:
+    """
+    Usage: mygif=gifplay(<<tkinter.label Objec>>,<<GIF path>>,<<frame_rate(in ms)>>)
+    example:
+    gif=GIF.gifplay(self.model2,'./res/neural.gif',0.1)
+    gif.play()
+    This will play gif infinitely
+    """
+    def __init__(self,label,giffile,delay):
+        self.frame=[]
+        i=0
+        while 1:
+            try:
+                image=PhotoImage(file = giffile, format="gif -index "+str(i))
+                self.frame.append(image)
+                i=i+1
+            except:
+                break
+        print(i)
+        self.totalFrames=i-1
+        self.delay=delay
+        self.labelspace=label
+        self.labelspace.image=self.frame[0]
+
+    def play(self):
+        """
+        plays the gif
+        """
+        _thread.start_new_thread(self.infinite,())
+
+    def infinite(self):
+        i=0
+        while 1:
+            self.labelspace.configure(image=self.frame[i])
+            i=(i+1)%self.totalFrames
+            time.sleep(self.delay)
 
 root = Tk()
 
